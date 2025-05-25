@@ -2,6 +2,32 @@
     "description": "JSON file to store metadata about tables and files",
     "metadata": [],
     "sql_tables": {
+        "database_firewall_rules": [
+            {
+                "column": "id",
+                "type": "int"
+            },
+            {
+                "column": "name",
+                "type": "nvarchar"
+            },
+            {
+                "column": "start_ip_address",
+                "type": "varchar"
+            },
+            {
+                "column": "end_ip_address",
+                "type": "varchar"
+            },
+            {
+                "column": "create_date",
+                "type": "datetime"
+            },
+            {
+                "column": "modify_date",
+                "type": "datetime"
+            }
+        ],
         "customers": [
             {
                 "column": "customer_id",
@@ -26,6 +52,28 @@
             {
                 "column": "age",
                 "type": "int"
+            }
+        ],
+        "orders": [
+            {
+                "column": "order_id",
+                "type": "int"
+            },
+            {
+                "column": "customer_id",
+                "type": "int"
+            },
+            {
+                "column": "order_date",
+                "type": "date"
+            },
+            {
+                "column": "order_amount",
+                "type": "decimal"
+            },
+            {
+                "column": "order_status",
+                "type": "nvarchar"
             }
         ]
     },

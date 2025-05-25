@@ -3,10 +3,10 @@
 # SQL Server connection string - customize for your DB
 SQL_SERVER_CONN_STRING = (
     "Driver={ODBC Driver 17 for SQL Server};"
-    "Server=localhost;"
+    "Server=myazuresqlserver228.database.windows.net;"
     "port=1433;"
     "Database=SampleDB;"
-    "UID=sa;"
+    "UID=Ravi0570;"
     "PWD=Ravi@0570;"
 )
 

@@ -28,10 +28,10 @@ def get_engine():
 
     conn_str = (
         "mssql+pyodbc://"
-        + "sa"  # replace below
+        + "Ravi0570"  # replace below
         + ":"
         + quote_plus("Ravi@0570")
-        + "@localhost:1433"  # replace below
+        + "@myazuresqlserver228.database.windows.net:1433"  # replace below
         + "/SampleDB"
         + "?driver=ODBC+Driver+17+for+SQL+Server"
     )

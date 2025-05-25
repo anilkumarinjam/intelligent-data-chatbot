@@ -5,6 +5,7 @@ from app.db import run_query
 from app.file_data import query_file
 from app.llm_client import llm_generate
 import ast
+import re
 from app.chart_utils import generate_chart as generate_chart_fn
 from app.vector_store import query_knowledge
 from app.formula_registry import get_all_formulas
@@ -44,11 +45,23 @@ def build_prompt(nl_query: str, schema: dict):
 def parse_llm_response(resp: str):
     """
     Parses LLM response to detect SQL or Pandas code and extract it.
+    Cleans out markdown code fences and language tags.
     """
-    if resp.startswith("SQL:"):
-        return "sql", resp[len("SQL:"):].strip()
-    elif resp.startswith("PANDAS:"):
-        return "pandas", resp[len("PANDAS:"):].strip()
+    # Find SQL or PANDAS section
+    sql_match = re.search(r"SQL:\s*([\s\S]*?)(?:PANDAS:|$)", resp)
+    pandas_match = re.search(r"PANDAS:\s*([\s\S]*)", resp)
+
+    if sql_match:
+        code = sql_match.group(1).strip()
+        # Remove code fences and language tags
+        code = re.sub(r"^```[a-zA-Z]*\n?", "", code)
+        code = re.sub(r"```$", "", code)
+        return "sql", code.strip()
+    elif pandas_match:
+        code = pandas_match.group(1).strip()
+        code = re.sub(r"^```[a-zA-Z]*\n?", "", code)
+        code = re.sub(r"```$", "", code)
+        return "pandas", code.strip()
     else:
         raise ValueError("LLM response not in expected format (missing SQL: or PANDAS: prefix)")
 
