@@ -1,0 +1,8 @@
+# List of dependencies
+
+fastapi
+uvicorn
+pandas
+openpyxl
+pyodbc
+sqlalchemy

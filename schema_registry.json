@@ -1,0 +1,59 @@
+{
+    "description": "JSON file to store metadata about tables and files",
+    "metadata": [],
+    "sql_tables": {
+        "customers": [
+            {
+                "column": "customer_id",
+                "type": "int"
+            },
+            {
+                "column": "first_name",
+                "type": "nvarchar"
+            },
+            {
+                "column": "last_name",
+                "type": "nvarchar"
+            },
+            {
+                "column": "email",
+                "type": "nvarchar"
+            },
+            {
+                "column": "country",
+                "type": "nvarchar"
+            },
+            {
+                "column": "age",
+                "type": "int"
+            }
+        ]
+    },
+    "files": {
+        "sample.xlsx": {
+            "columns": [
+                0,
+                "First Name",
+                "Last Name",
+                "Gender",
+                "Country",
+                "Age",
+                "Date",
+                "Id"
+            ]
+        },
+        "sample.csv": {
+            "columns": [
+                "# Sample CSV file(s)"
+            ]
+        },
+        "sales_data.xlsx": {
+            "columns": [
+                "product",
+                "month",
+                "total_sales",
+                "region"
+            ]
+        }
+    }
+}
